@@ -1,6 +1,6 @@
 package com.example.entity;
 
-import com.example.entity.template.AbcEntity;
+import com.example.entity.template.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +11,7 @@ import java.util.Set;
 @Getter
 @Entity
 @Table(name = "attach")
-public class AttachEntity extends AbcEntity {
+public class AttachEntity extends BaseEntity {
 
     private String key;
 

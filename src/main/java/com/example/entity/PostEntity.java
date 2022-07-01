@@ -1,6 +1,6 @@
 package com.example.entity;
 
-import com.example.entity.template.AbcEntity;
+import com.example.entity.template.BaseEntity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,7 +9,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "post")
-public class PostEntity extends AbcEntity {
+public class PostEntity extends BaseEntity {
 
     private String title;
 

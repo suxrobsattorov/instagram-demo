@@ -1,6 +1,6 @@
 package com.example.entity;
 
-import com.example.entity.template.AbcEntity;
+import com.example.entity.template.BaseEntity;
 import com.example.enums.ProfileStatus;
 import com.example.enums.Role;
 import lombok.Data;
@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "profile")
-public class ProfileEntity extends AbcEntity {
+public class ProfileEntity extends BaseEntity {
 
     private String name;
 
