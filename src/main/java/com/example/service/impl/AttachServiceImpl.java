@@ -5,6 +5,7 @@ import com.example.dto.Response;
 import com.example.entity.AttachEntity;
 import com.example.repository.AttachRepository;
 import com.example.service.AttachService;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

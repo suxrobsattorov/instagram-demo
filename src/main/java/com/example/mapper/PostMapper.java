@@ -5,10 +5,10 @@ import com.example.dto.response.PostResponse;
 import com.example.entity.PostEntity;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring")
+@Mapper( componentModel = "spring" )
 public interface PostMapper {
 
-    PostEntity toEntity(PostRequest request);
+    PostEntity toEntity( PostRequest request );
 
-    PostResponse toResponse(PostEntity entity);
+    PostResponse toResponse( PostEntity entity );
 }

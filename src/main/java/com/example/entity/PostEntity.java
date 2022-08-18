@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "post")
+@Table( name = "post" )
 public class PostEntity extends BaseEntity {
 
     private String title;
@@ -17,10 +17,10 @@ public class PostEntity extends BaseEntity {
 
     private String addLocation;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "profile_id")
+    @ManyToOne( fetch = FetchType.LAZY )
+    @JoinColumn( name = "profile_id" )
     private ProfileEntity profile;
 
-    @ManyToMany(targetEntity = AttachEntity.class,cascade = CascadeType.ALL )
+    @ManyToMany( targetEntity = AttachEntity.class, cascade = CascadeType.ALL )
     private Set<AttachEntity> attach;
 }

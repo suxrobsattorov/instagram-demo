@@ -8,17 +8,21 @@ import javax.persistence.*;
 /**
  * @author Suxrob Sattorov, Fri 10:46 PM. 7/1/2022
  */
-@Getter
-@Setter
-@RequiredArgsConstructor
+@Data
 @Entity
-@Table(name = "comment")
+@Table( name = "comment" )
 public class CommentEntity extends BaseEntity {
 
     private String content;
 
     @ManyToOne( fetch = FetchType.LAZY )
-    @JoinColumn( name = "profile_id" )
-    private ProfileEntity profile;
+    @JoinColumn( name = "post_id" )
+    private PostEntity post;
+
+//    @ManyToOne( fetch = FetchType.LAZY )
+//    @JoinColumn( name = "profile_id" )
+//    private ProfileEntity profile;
+
+    private Long profileId;
 
 }

@@ -7,6 +7,7 @@ import com.example.entity.PostEntity;
 import com.example.mapper.PostMapper;
 import com.example.repository.PostRepository;
 import com.example.service.PostService;
+import com.example.service.base.GetById;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class PostServiceImpl implements PostService {
+public class PostServiceImpl implements PostService, GetById<PostEntity, Long> {
 
     private final PostRepository postRepository;
 
@@ -26,7 +27,7 @@ public class PostServiceImpl implements PostService {
 
 
     @Override
-    public ResponseEntity<?> save(PostRequest request) {
+    public ResponseEntity<?> save( PostRequest request ) {
         PostResponse response = postMapper.toResponse(
                 postRepository.save(postMapper.toEntity(request))
         );
@@ -40,7 +41,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public ResponseEntity<?> get(Long id) {
+    public ResponseEntity<?> get( Long id ) {
 
         PostEntity entity = getById(id);
 
@@ -57,7 +58,7 @@ public class PostServiceImpl implements PostService {
     @Override
     public ResponseEntity<?> getAll() {
         List<PostResponse> responseList = new LinkedList<>();
-        for (PostEntity postEntity : postRepository.findAll()) {
+        for ( PostEntity postEntity : postRepository.findAll() ) {
             responseList.add(postMapper.toResponse(postEntity));
         }
         return ResponseEntity.status(201).body(
@@ -70,7 +71,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public ResponseEntity<?> delete(Long id) {
+    public ResponseEntity<?> delete( Long id ) {
         postRepository.delete(getById(id));
         return ResponseEntity.status(204).body(new Response(
                 "Post successfully deleted !!!",
@@ -78,7 +79,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostEntity getById(Long id) {
+    public PostEntity getById( Long id ) {
         return postRepository.findById(id).orElseThrow(() -> new RuntimeException("Post id not found"));
     }
 }
